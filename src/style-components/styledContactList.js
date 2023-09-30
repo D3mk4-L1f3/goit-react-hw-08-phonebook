@@ -16,7 +16,8 @@ export const ListStyled = styled.div`
     border-radius: 10px;
     height: 45px;
     justify-content: space-between;
-    background-color: rgba(223, 227, 230, 0.3);
+    background-color: rgba(64, 64, 64, 0.1);
+;
 
   button {
     font-size: clamp(10px, 2vw, 16px);
