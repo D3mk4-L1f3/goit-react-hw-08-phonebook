@@ -22,9 +22,7 @@ export function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div style={{ width: '100%', display: 'flex' }}>
-      <Loader />
-    </div>
+    <Loader />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
