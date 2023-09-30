@@ -1,36 +1,62 @@
-import ContactForm from './module/ContactForm';
-import ContactList from './module/ContactList';
-import Filter from './module/ContactFilter';
-import { ToastContainer, Zoom } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-import {
-  MainAppStyle,
-  MainContainerStyle,
-  MainTitleStyle,
-  SecondTitleStyle,
-} from './styled-component/app.styled';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import LoginPage from 'pages/LoginPage';
+import RegisterPage from 'pages/RegisterPage';
+import ContactsPage from 'pages/ContactsPage';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsRefreshing } from 'redux/selectors';
+import { useEffect } from 'react';
+import { refresh } from 'redux/operations';
+import RestrictedRoute from './RestrictedRout/RestrictedRout';
+import PrivateRout from './PrivateRout/PrivateRout';
+import NotFound from 'pages/ErrorPage';
+import { Loader } from './Loader/Loader';
 
 export function App() {
-  return (
-    <MainAppStyle>
-      <MainContainerStyle>
-        <MainTitleStyle>Phonebook</MainTitleStyle>
-        <ContactForm />
-      </MainContainerStyle>
-      <MainContainerStyle>
-        <SecondTitleStyle>Contacts</SecondTitleStyle>
-        <Filter />
-      </MainContainerStyle>
-      <ContactList />
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        theme="dark"
-        hideProgressBar={true}
-        transition={Zoom}
-        pauseOnHover
-      />
-    </MainAppStyle>
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <div style={{ width: '100%', display: 'flex' }}>
+      <Loader />
+    </div>
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route
+          index
+          element={
+            <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <RestrictedRoute
+              component={<RegisterPage />}
+              redirectTo="/contacts"
+            />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRout component={<ContactsPage />} redirectTo="/login" />
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }

@@ -1,3 +1,10 @@
+html {
+  background: linear-gradient(to bottom, #ffffff81, #f2f2f255);
+  min-height: 100vh;
+  background-attachment: fixed;
+  position: relative;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,14 +12,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to bottom, #ffffff, #f2f2f2);
-  min-height: 100vh;
-  background-attachment: fixed;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 h1,
