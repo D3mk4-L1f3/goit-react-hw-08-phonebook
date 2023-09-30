@@ -1,5 +1,5 @@
 html {
-  background: linear-gradient(to bottom, #ffffff81, #f2f2f255);
+  background: linear-gradient(to bottom, #f5f5f5, #dcdcdc);
   min-height: 100vh;
   background-attachment: fixed;
   position: relative;
@@ -12,6 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,

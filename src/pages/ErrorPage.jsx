@@ -12,7 +12,7 @@ export default function NotFound() {
         }}
       >
         <h1>Page not found, try later!</h1>
-        <img src={error404} alt="not found" width={'100%'} />
+        <img src={error404} alt="404,not found" width={'100%'} />
       </div>
     </>
   );
