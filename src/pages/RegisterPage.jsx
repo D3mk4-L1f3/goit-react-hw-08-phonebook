@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/operations';
 import { MdOutlineVisibilityOff, MdOutlineVisibility } from 'react-icons/md';
 import { BsHouseAdd } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
 export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,15 +17,26 @@ export default function RegisterPage() {
     e.preventDefault();
 
     const form = e.currentTarget;
+    const password = form.elements.password.value;
 
-    const newUser = {
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    };
+    switch (true) {
+      case password.length < 7:
+        toast.error('Create new password more then 7 symbols');
+        break;
+      case password.length > 9:
+        toast.error('Create new password it`s too long (max 9 symbols)');
+        break;
+      default:
+        const newUser = {
+          name: form.elements.name.value,
+          email: form.elements.email.value,
+          password: password,
+        };
 
-    dispatch(register(newUser));
-    form.reset();
+        dispatch(register(newUser));
+        form.reset();
+        break;
+    }
   };
 
   return (
