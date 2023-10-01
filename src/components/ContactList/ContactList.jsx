@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { FcFullTrash } from 'react-icons/fc';
-import { ListItem, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import { deleteContact, fetchContacts } from 'redux/operations';
 import { selectContacts, selectFilteredName } from 'redux/selectors';
 import {
@@ -46,19 +46,16 @@ export default function ContactList() {
       {filteredArray.map(contact => (
         <CSSTransition key={contact.id} timeout={300} classNames="item">
           <ListStyled>
-            <ListItem style={{ justifyContent: 'space-between' }}>
-              <ContactText>
-                <b>{formatName(contact.name)}</b>:{' '}
-                {formatNumber(contact.number)}
-              </ContactText>
-              <IconButton
-                variant="outlined"
-                onClick={() => handleDelete(contact.id)}
-                title="Remove your's contact :("
-              >
-                <FcFullTrash />
-              </IconButton>
-            </ListItem>
+            <ContactText>
+              <b>{formatName(contact.name)}</b>: {formatNumber(contact.number)}
+            </ContactText>
+            <IconButton
+              variant="outlined"
+              onClick={() => handleDelete(contact.id)}
+              title="Remove your's contact :("
+            >
+              <FcFullTrash />
+            </IconButton>
           </ListStyled>
         </CSSTransition>
       ))}

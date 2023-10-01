@@ -3,20 +3,21 @@ import styled from 'styled-components';
 export const transitionGroupStyle = {
   display: 'flex',
   flexDirection: 'column-reverse',
-  maxWidth: '900',
-  margin: '0 auto',
   textAlign: 'center',
-  padding: 20,
-  gap: 10,
+  gap: 20,
 };
 
 export const ListStyled = styled.div`
   display: flex;
-    align-items: center;
-    border-radius: 10px;
-    height: 45px;
-    justify-content: space-between;
-    background-color: rgba(64, 64, 64, 0.1);
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  height: 45px;
+  padding: 0 10px;
+  background-color: rgba(50, 50, 50, 0.1);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  
 ;
 
   button {
@@ -29,8 +30,7 @@ export const ListStyled = styled.div`
 
     &:hover,:focus {
         scale: 1.3;
-        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+        background-color: rgba(255, 0, 0, 0.1);
     }
   }
 `;

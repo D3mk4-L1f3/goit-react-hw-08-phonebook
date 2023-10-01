@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   gap: 30px;
   flex-direction: column;
-  max-width: 1280px;
+  max-width: 800px;
   margin: 120px auto;
   padding: 0 10px;
 `;
@@ -35,13 +35,12 @@ export const FormContainer = styled.form`
         text-align: center;
         font-size: clamp(5px, 5vw, 15px);
     }
-
   }
 
     button {
     display: flex;
     gap: 10px;
-    font-size: clamp(10px, 2vw, 16px);
+    font-size: clamp(12px, 2vw, 16px);
     background-color: beige;
     padding: 10px;
     cursor: pointer;
