@@ -61,6 +61,30 @@ export default function ContactForm() {
         value={formData.name}
         onChange={handleInputChange}
         required
+        sx={{
+          maxWidth: '100%',
+          '& input': {
+            backgroundColor: 'beige',
+            color: 'black',
+            fontSize: 'clamp(10px, 5vw, 20px)',
+            '&::placeholder': {
+              textAlign: 'center',
+              fontSize: 'clamp(5px, 5vw, 15px)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            color: 'green',
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'green',
+            borderRadius: '10px',
+          },
+          '&:hover,:focus': {
+            scale: '1.1',
+            backgroundColor: 'beige',
+            borderRadius: '10px',
+          },
+        }}
       />
 
       <TextField
@@ -74,6 +98,30 @@ export default function ContactForm() {
         placeholder="... only numbers"
         value={formData.number}
         required
+        sx={{
+          maxWidth: '100%',
+          '& input': {
+            backgroundColor: 'beige',
+            color: 'black',
+            fontSize: 'clamp(10px, 5vw, 20px)',
+            '&::placeholder': {
+              textAlign: 'center',
+              fontSize: 'clamp(5px, 5vw, 15px)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            color: 'green',
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'green',
+            borderRadius: '10px',
+          },
+          '&:hover,:focus': {
+            scale: '1.1',
+            backgroundColor: 'beige',
+            borderRadius: '10px',
+          },
+        }}
       />
 
       <Button
@@ -81,6 +129,25 @@ export default function ContactForm() {
         type="submit"
         style={{ gap: '10px', backgroundColor: 'beige' }}
         title="Push and add your's contact :)"
+        sx={{
+          display: 'flex',
+          gap: '10px',
+          fontSize: 'clamp(12px, 2vw, 16px)',
+          padding: '10px',
+          cursor: 'pointer',
+          color: 'black',
+          borderRadius: '10px',
+          backgroundColor: 'beige',
+          '&:hover': {
+            scale: '1.1',
+            fontWeight: '700',
+            backgroundColor: 'beige',
+          },
+          '&:disabled': {
+            backgroundColor: 'lightgray',
+            color: 'gray',
+          },
+        }}
       >
         <MdPersonAddAlt1 style={{ width: '25', height: '25' }} /> Phonebook
       </Button>

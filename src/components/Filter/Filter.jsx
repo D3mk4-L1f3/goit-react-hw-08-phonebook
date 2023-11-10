@@ -22,6 +22,30 @@ export default function Filter() {
         variant="outlined"
         type="text"
         onChange={handleChange}
+        sx={{
+          maxWidth: '100%',
+          '& input': {
+            backgroundColor: 'beige',
+            color: 'black',
+            fontSize: 'clamp(10px, 5vw, 20px)',
+            '&::placeholder': {
+              textAlign: 'center',
+              fontSize: 'clamp(5px, 5vw, 15px)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            color: 'green',
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'green',
+            borderRadius: '10px',
+          },
+          '&:hover,:focus': {
+            scale: '1.1',
+            backgroundColor: 'beige',
+            borderRadius: '10px',
+          },
+        }}
       />
     </FormContainer>
   );

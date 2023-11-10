@@ -51,6 +51,29 @@ export default function RegisterPage() {
           title="Your name :)"
           placeholder="...John Snow..."
           required
+          sx={{
+            maxWidth: '100%',
+            '& input': {
+              backgroundColor: 'beige',
+              color: 'black',
+              fontSize: 'clamp(10px, 5vw, 20px)',
+              '&::placeholder': {
+                textAlign: 'center',
+                fontSize: 'clamp(5px, 5vw, 15px)',
+              },
+            },
+            '& .MuiInputLabel-root': {
+              color: 'red',
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'green',
+              borderRadius: '10px',
+            },
+            '&:hover,:focus': {
+              scale: '1.1',
+              backgroundColor: 'beige',
+            },
+          }}
         />
         <TextField
           size="medium"
@@ -61,6 +84,29 @@ export default function RegisterPage() {
           title="Your email :)"
           placeholder="example@email.com"
           required
+          sx={{
+            maxWidth: '100%',
+            '& input': {
+              backgroundColor: 'beige',
+              color: 'black',
+              fontSize: 'clamp(10px, 5vw, 20px)',
+              '&::placeholder': {
+                textAlign: 'center',
+                fontSize: 'clamp(5px, 5vw, 15px)',
+              },
+            },
+            '& .MuiInputLabel-root': {
+              color: 'red',
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'green',
+              borderRadius: '10px',
+            },
+            '&:hover,:focus': {
+              scale: '1.1',
+              backgroundColor: 'beige',
+            },
+          }}
         />
         <TextField
           size="medium"
@@ -78,26 +124,46 @@ export default function RegisterPage() {
                 onClick={togglePasswordVisibility}
                 title="to see secret password :)"
                 edge="end"
+                sx={{
+                  position: 'absolute',
+                  top: '10px',
+                  right: '25px',
+                  backgroundColor: 'transparent',
+                }}
               >
                 {showPassword ? (
-                  <MdOutlineVisibilityOff
-                    style={{
-                      width: '23',
-                      height: '23',
-                      padding: '11',
-                    }}
-                  />
+                  <MdOutlineVisibilityOff />
                 ) : (
-                  <MdOutlineVisibility
-                    style={{
-                      width: '23',
-                      height: '23',
-                      padding: '11',
-                    }}
-                  />
+                  <MdOutlineVisibility />
                 )}
               </IconButton>
             ),
+          }}
+          sx={{
+            maxWidth: '100%',
+            paddingRight: '0',
+            '& input': {
+              backgroundColor: 'beige',
+              color: 'black',
+              fontSize: 'clamp(10px, 5vw, 20px)',
+              paddingRight: '14px',
+              '&::placeholder': {
+                textAlign: 'center',
+                fontSize: 'clamp(5px, 5vw, 15px)',
+              },
+            },
+            '& .MuiInputLabel-root': {
+              color: 'red',
+            },
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'green',
+              borderRadius: '10px',
+              padding: '0',
+            },
+            '&:hover,:focus': {
+              scale: '1.1',
+              backgroundColor: 'beige',
+            },
           }}
         />
         <Button
@@ -105,6 +171,25 @@ export default function RegisterPage() {
           variant="contained"
           title="Register your account :)"
           endIcon={<BsHouseAdd style={{ color: 'green' }} />}
+          sx={{
+            display: 'flex',
+            gap: '10px',
+            fontSize: 'clamp(12px, 2vw, 16px)',
+            padding: '10px',
+            cursor: 'pointer',
+            color: 'black',
+            borderRadius: '10px',
+            backgroundColor: 'beige',
+            '&:hover': {
+              scale: '1.1',
+              fontWeight: '700',
+              backgroundColor: 'beige',
+            },
+            '&:disabled': {
+              backgroundColor: 'lightgray',
+              color: 'gray',
+            },
+          }}
         >
           Register
         </Button>
